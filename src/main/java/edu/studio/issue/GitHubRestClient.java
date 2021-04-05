@@ -1,5 +1,6 @@
 package edu.studio.issue;
 
+import kong.unirest.HttpResponse;
 import kong.unirest.Unirest;
 
 public class GitHubRestClient {
@@ -8,11 +9,10 @@ public class GitHubRestClient {
 
     public String getIssuesFromGitHub(String token) {
         
-        String responseBody = Unirest.get(TEST_AREA_URL)
-                .header("Authorization", "Bearer " + token).asString()
-                .getBody();
+        HttpResponse<String> response = Unirest.get(TEST_AREA_URL)
+                .header("Authorization", "Bearer " + token).asString();
         
-        return responseBody;
+        return response.getStatus()==200?response.getBody():null;
     }
 
 }
