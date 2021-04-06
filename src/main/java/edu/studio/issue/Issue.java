@@ -14,6 +14,8 @@ public class Issue {
     private User user;
     private User assignee;
     
+    public Issue() {}
+    
     public long getId() {
         return id;
     }
