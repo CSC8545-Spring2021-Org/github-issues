@@ -1,19 +1,25 @@
 package edu.studio.issue;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class UserTest {
+    
+    private User user;
 
     @BeforeEach
     void setUp() throws Exception {
+        user = new User();
     }
 
     @Test
-    void test() {
-        fail("Not yet implemented");
+    void testProperties() {
+        
+        user.setLogin("utsav");
+        assertEquals("utsav", user.getLogin());
+        
+        user.setId(12345);
+        assertEquals(12345, user.getId());
     }
 
 }
