@@ -13,10 +13,18 @@ public class User {
     public void setId(long id) {
         this.id = id;
     }
+
+
     public String getLogin() {
         return login;
     }
     public void setLogin(String login) {
         this.login = login;
+    }
+    
+    @Override
+    public String toString() {
+        
+        return "Username: "+ this.login + ", Id: "+ this.id;
     }
 }
