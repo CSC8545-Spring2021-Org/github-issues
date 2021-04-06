@@ -57,5 +57,24 @@ class IssueTest {
                 + "User: null\nAssignee: null", issue.toString());
         
     }
+    
+    @Test
+    public void testToStringPartial() {
+        
+        issue.setId(123456);
+        issue.setTitle("First Issue");
+        
+        user.setId(123);
+        user.setLogin("Utsav");
+        issue.setUser(user);
+        
+        Date date= new Date();
+        issue.setCreatedAt(date);
+        
+
+        assertEquals("Id: 123456\nNumber: 0\nState: null\nTitle: First Issue\nBody: null\nCreated At: " + date +"\nClosed At: null\n"
+                + "User: Username: Utsav, Id: 123\nAssignee: null", issue.toString());
+        
+    }
 
 }
