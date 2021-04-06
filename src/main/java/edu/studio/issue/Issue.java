@@ -12,7 +12,7 @@ public class Issue {
     private Date createdAt;
     private Date closedAt=null;
     private User user;
-    private User asignee;
+    private User assignee;
     
     public long getId() {
         return id;
@@ -62,11 +62,11 @@ public class Issue {
     public void setUser(User user) {
         this.user = user;
     }
-    public User getAsignee() {
-        return asignee;
+    public User getAssignee() {
+        return assignee;
     }
-    public void setAsignee(User asignee) {
-        this.asignee = asignee;
+    public void setAssignee(User asignee) {
+        this.assignee = asignee;
     }
   
 
