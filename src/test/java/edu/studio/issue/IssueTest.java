@@ -1,6 +1,7 @@
 package edu.studio.issue;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 import java.util.Date;
 
@@ -99,6 +100,13 @@ class IssueTest {
         assertEquals("Id: 123456\nNumber: 123\nState: open\nTitle: First Issue\nBody: This describes the issue!\nCreated At: " + date +"\nClosed At: "+ date 
                 +  "\nUser: Username: Utsav, Id: 123\nAssignee: Username: Utsav, Id: 123", issue.toString());
         
+    }
+    
+    @Test
+    public void testEqualsReferenceEquality() {
+        Issue issue1 = new Issue();
+        Issue issue2 = issue1;
+        assertSame(issue1, issue2); //reference equality ==
     }
 
 }
