@@ -108,5 +108,17 @@ class IssueTest {
         Issue issue2 = issue1;
         assertSame(issue1, issue2); //reference equality ==
     }
+    
+    @Test
+    public void testEqualsValueEquality() {
+        Issue issue1 = new Issue();
+        issue1.setId(42);
+        Issue issue2 = new Issue();
+        issue2.setId(42);
+        assertEquals(issue1, issue2);  //value equality .equals()
+        
+        //equal objects must have equal hash codes
+        assertEquals(issue1.hashCode(), issue2.hashCode());  
+    }
 
 }
