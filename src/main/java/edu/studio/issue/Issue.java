@@ -77,6 +77,34 @@ public class Issue {
         return "Id: " + id + "\nNumber: " + number + "\nState: " + state + "\nTitle: " + title + "\nBody: " + body
                 + "\nCreated At: " + createdAt + "\nClosed At: " + closedAt + "\nUser: " + user + "\nAssignee: " + assignee;
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (id ^ (id >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean result=true;
+        if (this == obj) {
+        }
+        if (obj == null) {
+            result= false;
+        }
+        if (getClass() != obj.getClass()) {
+            result= false;
+        }
+        Issue other = (Issue) obj;
+        if (id != other.id) {
+            result= false;
+        }
+        return result;
+    }
+    
+    
   
 
 }
