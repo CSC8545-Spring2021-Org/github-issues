@@ -49,5 +49,13 @@ class IssueTest {
         issue.setUser(user);
         assertEquals(user, issue.getUser());
     }
+    
+    @Test
+    public void testToStringEmpty() {
+        
+        assertEquals("Id: 0\nNumber: 0\nState: null\nTitle: null\nBody: null\nCreated At: null\nClosed At: null\n"
+                + "User: null\nAssignee: null", issue.toString());
+        
+    }
 
 }
