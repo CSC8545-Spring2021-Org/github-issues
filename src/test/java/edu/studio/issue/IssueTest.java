@@ -25,6 +25,9 @@ class IssueTest {
         issue.setId(42);
         assertEquals(42, issue.getId());
         
+        issue.setNumber(42);
+        assertEquals(42, issue.getNumber());
+        
         issue.setState("open");
         assertEquals("open", issue.getState());
         
@@ -38,8 +41,7 @@ class IssueTest {
         issue.setCreatedAt(expectedDate);
         assertEquals(expectedDate, issue.getCreatedAt());
         
-        issue.setClosedAt(expectedDate);
-        assertEquals(expectedDate, issue.getClosedAt());
+        assertEquals(null, issue.getClosedAt());
         
         issue.setAssignee(user);
         assertEquals(user, issue.getAssignee());
