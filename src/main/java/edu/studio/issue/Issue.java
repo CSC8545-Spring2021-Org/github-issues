@@ -70,6 +70,13 @@ public class Issue {
     public void setAssignee(User asignee) {
         this.assignee = asignee;
     }
+    
+
+    @Override
+    public String toString() {
+        return "Id: " + id + "\nNumber: " + number + "\nState: " + state + "\nTitle: " + title + "\nBody: " + body
+                + "\nCreated At: " + createdAt + "\nClosed At: " + closedAt + "\nUser: " + user + "\nAssignee: " + assignee;
+    }
   
 
 }
