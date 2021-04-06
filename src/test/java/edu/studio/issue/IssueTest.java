@@ -76,5 +76,29 @@ class IssueTest {
                 + "User: Username: Utsav, Id: 123\nAssignee: null", issue.toString());
         
     }
+    
+    @Test
+    public void testToStringFull() {
+        
+        issue.setId(123456);
+        issue.setTitle("First Issue");
+        issue.setBody("This describes the issue!");
+        issue.setNumber(123);
+        issue.setState("open");
+        
+        user.setId(123);
+        user.setLogin("Utsav");
+        issue.setUser(user);
+        issue.setAssignee(user);
+        
+        Date date= new Date();
+        issue.setCreatedAt(date);
+        issue.setClosedAt(date);
+        
+
+        assertEquals("Id: 123456\nNumber: 123\nState: open\nTitle: First Issue\nBody: This describes the issue!\nCreated At: " + date +"\nClosed At: "+ date 
+                +  "\nUser: Username: Utsav, Id: 123\nAssignee: Username: Utsav, Id: 123", issue.toString());
+        
+    }
 
 }
