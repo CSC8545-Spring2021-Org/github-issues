@@ -3,6 +3,7 @@ package edu.studio.issue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
@@ -19,8 +20,8 @@ class IssueParserTest {
     }
 
     @Test
-    void testParseIssueWithValidJson(){
-        IssueParser parser = new IssueParser();
+    void testParseIssueWithValidJson() throws IOException{
+        parser = new IssueParser();
         String json = Files.readString(
                 Paths.get("src/test/resources/sample-output.txt")); 
         
