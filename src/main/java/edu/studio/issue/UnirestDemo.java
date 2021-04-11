@@ -13,8 +13,7 @@ public class UnirestDemo {
     }
 
     protected void requestViaBearerToken(String[] args) {
-        String responseBody = Unirest.get(TEST_AREA_URL)
-                .header("Authorization", "Bearer " + args[0]).asString()
+        String responseBody = Unirest.get(TEST_AREA_URL).header("Authorization", "Bearer " + args[0]).asString()
                 .getBody();
 
         System.out.println(responseBody);

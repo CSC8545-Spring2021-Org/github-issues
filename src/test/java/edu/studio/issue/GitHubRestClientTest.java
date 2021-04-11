@@ -16,41 +16,41 @@ class GitHubRestClientTest {
 
     private GitHubRestClient client;
     private String token;
+
     @BeforeEach
     void setUp() throws Exception {
-        
+
         client = new GitHubRestClient();
-        token = System.getProperty("bearer.token"); 
+        token = System.getProperty("bearer.token");
     }
 
     @Test
     void returnsIssuesFromGitHub() throws IOException {
-        
+
         assertNotNull(token);
         assertTrue(token.length() > 0);
-        
-        String expectedJson = Files.readString(
-                Paths.get("src/test/resources/sample-output.txt")); 
+
+        String expectedJson = Files.readString(Paths.get("src/test/resources/sample-output.txt"));
         assertNotNull(expectedJson);
         assertTrue(expectedJson.length() > 0);
-        
+
         String actualJson = client.getIssuesFromGitHub(token);
         assertEquals(expectedJson, actualJson);
-        
+
     }
-    
+
     @Test
     void returnsNullIfNot200() {
-        
-        //Invalid token to setup 401 response
-        token="1230ahkk234jdfk";
+
+        // Invalid token to setup 401 response
+        token = "1230ahkk234jdfk";
         assertNotNull(token);
         assertTrue(token.length() > 0);
-        
+
         String response = client.getIssuesFromGitHub(token);
-        
+
         assertNull(response);
-        
+
     }
 
 }

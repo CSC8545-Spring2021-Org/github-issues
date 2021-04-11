@@ -17,26 +17,25 @@ class IssueParserTest {
 
     private IssueParser parser;
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");;
+
     @BeforeEach
     void setUp() throws Exception {
-        parser= new IssueParser();
+        parser = new IssueParser();
     }
 
     @Test
-    void testParseIssueWithValidJson() throws IOException, ParseException{
+    void testParseIssueWithValidJson() throws IOException, ParseException {
         parser = new IssueParser();
-        String json = Files.readString(
-                Paths.get("src/test/resources/sample-output.txt")); 
-        
+        String json = Files.readString(Paths.get("src/test/resources/sample-output.txt"));
+
         User user = new User();
         user.setId(55940428);
         user.setLogin("W2NJL");
-        
-        
+
         List<Issue> issues = parser.parseIssues(json);
         assertNotNull(issues);
-        assertEquals(7, issues.size());  
-        
+        assertEquals(7, issues.size());
+
         Issue issue0 = issues.get(0);
         assertEquals(851747305, issue0.getId());
         assertEquals(7, issue0.getNumber());
@@ -47,7 +46,6 @@ class IssueParserTest {
         assertEquals(null, issue0.getAssignee());
         assertEquals(dateFormat.parse("2021-04-06T19:30:10Z"), issue0.getCreatedAt());
         assertEquals(null, issue0.getClosedAt());
-        
 
     }
 

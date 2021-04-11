@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 class IssueExporterTest {
 
     private IssueExporter export;
+
     @BeforeEach
     void setUp() throws Exception {
         export = new IssueExporter();
@@ -15,35 +16,35 @@ class IssueExporterTest {
 
     @Test
     void testValidPatGivesTrue() {
-        
-        String[] args = new String[] {"ghjksdfkksdf215465sf"};
-        
-        boolean actual= export.validatePat(args);
-        
+
+        String[] args = new String[] { "ghjksdfkksdf215465sf" };
+
+        boolean actual = export.validatePat(args);
+
         assertEquals(true, actual);
-        
+
     }
-    
+
     @Test
     void testNullArrayGivesFalse() {
-        
+
         String[] args = null;
-        
-        boolean actual= export.validatePat(args);
-        
+
+        boolean actual = export.validatePat(args);
+
         assertEquals(false, actual);
-        
+
     }
-    
+
     @Test
     void testNullStringGivesFalse() {
-        
-        String[] args = new String[] {null};
-        
-        boolean actual= export.validatePat(args);
-        
+
+        String[] args = new String[] { null };
+
+        boolean actual = export.validatePat(args);
+
         assertEquals(false, actual);
-        
+
     }
 
 }
