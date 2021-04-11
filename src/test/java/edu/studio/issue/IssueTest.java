@@ -165,6 +165,8 @@ class IssueTest {
         
         issue.setId(44);
         assertTrue(issue1.compareTo(issue) < 0);
+        assertFalse(issue1.compareTo(issue) > 0);
+        assertFalse(issue1.compareTo(issue) == 0);
     }
     
     
