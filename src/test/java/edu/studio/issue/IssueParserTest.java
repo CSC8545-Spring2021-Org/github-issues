@@ -24,13 +24,24 @@ class IssueParserTest {
         parser = new IssueParser();
         String json = Files.readString(
                 Paths.get("src/test/resources/sample-output.txt")); 
+        User user = new User();
+        user.setId(55940428);
+        user.setLogin("W2NJL");
         
         List<Issue> issues = parser.parseIssues(json);
         assertNotNull(issues);
-        assertEquals(2, issues.size());  
+        assertEquals(7, issues.size());  
         
         Issue issue0 = issues.get(0);
-        assertEquals(1, issue0.getId());
+        assertEquals(851747305, issue0.getId());
+        assertEquals(7, issue0.getNumber());
+        assertEquals("open", issue0.getState());
+        assertEquals("Testing!", issue0.getTitle());
+        assertEquals(null, issue0.getBody());
+        assertEquals(user, issue0.getUser());
+        
+        
+
     }
 
 }
