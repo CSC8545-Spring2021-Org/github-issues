@@ -33,4 +33,33 @@ public class User implements Comparable<User> {
         
         return this.id < o.id ? -1 : this.id==o.id ? 0: 1;
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (id ^ (id >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean result=true;
+        if (obj == null) {
+            return false;
+        }
+        
+        if (this == obj) {
+        }
+        
+        if (getClass() != obj.getClass()) {
+            result= false;
+        }
+        User other = (User) obj;
+        if (id != other.id) {
+            result= false;
+        }
+        return result;
+    }
+    
 }
