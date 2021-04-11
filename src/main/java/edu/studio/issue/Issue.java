@@ -2,7 +2,7 @@ package edu.studio.issue;
 
 import java.util.Date;
 
-public class Issue {
+public class Issue implements Comparable<Issue> {
     
     private long id;
     private int number;
@@ -105,8 +105,12 @@ public class Issue {
         }
         return result;
     }
-    
-    
-  
+
+    public int compareTo(Issue o) {
+       
+        return this.id < o.id ? -1 : this.id==o.id ? 0: 1;
+    }
+
+
 
 }
