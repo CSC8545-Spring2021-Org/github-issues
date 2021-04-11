@@ -10,7 +10,7 @@ public class Issue implements Comparable<Issue> {
     private String title;
     private String body;
     private Date createdAt;
-    private Date closedAt=null;
+    private Date closedAt;
     private User user;
     private User assignee;
     
