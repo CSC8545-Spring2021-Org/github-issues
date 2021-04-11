@@ -150,6 +150,16 @@ class IssueTest {
         assertFalse(issue2.equals(null));
     }
     
+    @Test
+    public void testEqualsConsistent() {
+        
+        assertTrue(issue1.equals(issue2));
+        assertTrue(issue1.equals(issue2));
+        assertTrue(issue1.equals(issue2));
+        assertTrue(issue1.equals(issue2));
+        assertEquals(issue1.hashCode(), issue1.hashCode()); 
+    }
+    
     
 
 }
