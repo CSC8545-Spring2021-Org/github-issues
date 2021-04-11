@@ -89,11 +89,13 @@ public class Issue {
     @Override
     public boolean equals(Object obj) {
         boolean result=true;
+        if (obj == null) {
+            return false;
+        }
+        
         if (this == obj) {
         }
-        if (obj == null) {
-            result= false;
-        }
+        
         if (getClass() != obj.getClass()) {
             result= false;
         }
