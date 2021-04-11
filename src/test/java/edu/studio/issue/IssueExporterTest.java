@@ -23,5 +23,27 @@ class IssueExporterTest {
         assertEquals(true, actual);
         
     }
+    
+    @Test
+    void testNullArrayGivesFalse() {
+        
+        String[] args = null;
+        
+        boolean actual= export.validatePat(args);
+        
+        assertEquals(false, actual);
+        
+    }
+    
+    @Test
+    void testNullStringGivesFalse() {
+        
+        String[] args = new String[] {null};
+        
+        boolean actual= export.validatePat(args);
+        
+        assertEquals(false, actual);
+        
+    }
 
 }
