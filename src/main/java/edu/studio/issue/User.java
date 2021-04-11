@@ -1,6 +1,6 @@
 package edu.studio.issue;
 
-public class User {
+public class User implements Comparable<User> {
 
     private long id;
     private String login;
@@ -26,5 +26,11 @@ public class User {
     public String toString() {
         
         return "Username: "+ this.login + ", Id: "+ this.id;
+    }
+
+    @Override
+    public int compareTo(User o) {
+        
+        return this.id < o.id ? -1 : this.id==o.id ? 0: 1;
     }
 }

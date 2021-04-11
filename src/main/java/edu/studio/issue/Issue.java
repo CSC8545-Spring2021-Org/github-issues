@@ -106,6 +106,7 @@ public class Issue implements Comparable<Issue> {
         return result;
     }
 
+    @Override
     public int compareTo(Issue o) {
        
         return this.id < o.id ? -1 : this.id==o.id ? 0: 1;
