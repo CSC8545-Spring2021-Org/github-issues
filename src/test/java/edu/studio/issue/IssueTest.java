@@ -2,6 +2,7 @@ package edu.studio.issue;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Date;
 
@@ -11,12 +12,19 @@ import org.junit.jupiter.api.Test;
 class IssueTest {
     
     private Issue issue;
+    private Issue issue1;
+    private Issue issue2;
     private User user;
+    
 
     @BeforeEach
     void setUp() throws Exception {
         issue = new Issue();
         user = new User();
+        issue1 = new Issue();
+        issue1.setId(42);
+        issue2 = new Issue();
+        issue2.setId(42);
     }
 
     @Test
@@ -104,21 +112,28 @@ class IssueTest {
     
     @Test
     public void testEqualsReferenceEquality() {
-        Issue issue1 = new Issue();
-        Issue issue2 = issue1;
+        
+        issue2 = issue1;
         assertSame(issue1, issue2); //reference equality ==
     }
     
     @Test
     public void testEqualsValueEquality() {
-        Issue issue1 = new Issue();
-        issue1.setId(42);
-        Issue issue2 = new Issue();
-        issue2.setId(42);
+
         assertEquals(issue1, issue2);  //value equality .equals()
         
         //equal objects must have equal hash codes
         assertEquals(issue1.hashCode(), issue2.hashCode());  
     }
+    
+    @Test
+    public void testEqualsSymmetric() {
+        
+        boolean symmetric = issue1.equals(issue2) && issue2.equals(issue2);
+        assertTrue(symmetric);
+        assertEquals(issue1.hashCode(), issue2.hashCode()); 
+    }
+    
+    
 
 }
