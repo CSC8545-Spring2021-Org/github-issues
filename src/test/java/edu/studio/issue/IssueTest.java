@@ -134,6 +134,14 @@ class IssueTest {
         assertEquals(issue1.hashCode(), issue2.hashCode()); 
     }
     
+    @Test
+    public void testEqualsTransitive() {
+        
+        issue.setId(42);
+        boolean transitive = issue.equals(issue1) && issue1.equals(issue2);
+        assertEquals(transitive, issue.equals(issue2)); 
+    }
+    
     
 
 }
