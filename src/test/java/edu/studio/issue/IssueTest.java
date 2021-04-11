@@ -1,6 +1,7 @@
 package edu.studio.issue;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -140,6 +141,13 @@ class IssueTest {
         issue.setId(42);
         boolean transitive = issue.equals(issue1) && issue1.equals(issue2);
         assertEquals(transitive, issue.equals(issue2)); 
+    }
+    
+    @Test
+    public void testEqualsNonNullWithNullGivesFalse() {
+        
+        assertFalse(issue1.equals(null));
+        assertFalse(issue2.equals(null));
     }
     
     
