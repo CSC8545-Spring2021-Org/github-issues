@@ -52,6 +52,7 @@ public class User implements Comparable<User> {
         }
 
         if (this == obj) {
+            result=true;
         }
 
         if (getClass() != obj.getClass()) {

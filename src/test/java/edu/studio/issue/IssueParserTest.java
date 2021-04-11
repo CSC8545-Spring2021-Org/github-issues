@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 class IssueParserTest {
 
     private IssueParser parser;
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");;
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
 
     @BeforeEach
     void setUp() throws Exception {

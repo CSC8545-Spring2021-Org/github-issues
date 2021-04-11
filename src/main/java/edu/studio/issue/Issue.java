@@ -112,6 +112,7 @@ public class Issue implements Comparable<Issue> {
         }
 
         if (this == obj) {
+            result=true;
         }
 
         if (getClass() != obj.getClass()) {
