@@ -160,6 +160,13 @@ class IssueTest {
         assertEquals(issue1.hashCode(), issue1.hashCode()); 
     }
     
+    @Test
+    public void testCompareTo() {
+        
+        issue.setId(44);
+        assertTrue(issue1.compareTo(issue) < 0);
+    }
+    
     
 
 }
