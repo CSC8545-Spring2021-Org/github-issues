@@ -130,7 +130,7 @@ class IssueTest {
     @Test
     public void testEqualsSymmetric() {
         
-        boolean symmetric = issue1.equals(issue2) && issue2.equals(issue2);
+        boolean symmetric = issue1.equals(issue2) && issue2.equals(issue1);
         assertTrue(symmetric);
         assertEquals(issue1.hashCode(), issue2.hashCode()); 
     }
