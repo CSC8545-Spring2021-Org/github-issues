@@ -1,9 +1,7 @@
 package edu.studio.issue;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.InvalidPathException;
 import java.util.List;
 
 public class IssueExporter {
@@ -29,18 +27,11 @@ public class IssueExporter {
         try {
             exporter.exportToFile(issues);
         }
-        catch (InvalidPathException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
         catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        
     }
     protected boolean validatePat(String[] args) {
 
@@ -57,7 +48,7 @@ public class IssueExporter {
         System.out.println(ERROR_MESSAGE);
     }
     
-    public void exportToFile(List<Issue> issues) throws FileNotFoundException, IOException, InvalidPathException {
+    public void exportToFile(List<Issue> issues) throws FileNotFoundException {
        
         PrintWriter writer = new PrintWriter(ACTUAL_FILE_PATH);
         
