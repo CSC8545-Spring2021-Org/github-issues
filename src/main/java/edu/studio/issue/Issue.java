@@ -91,8 +91,8 @@ public class Issue implements Comparable<Issue> {
 
     @Override
     public String toString() {
-        return "Id: " + id + "\nNumber: " + number + "\nState: " + state + "\nTitle: " + title + "\nBody: " + body
-                + "\nCreated At: " + createdAt + "\nClosed At: " + closedAt + "\nUser: " + user + "\nAssignee: "
+        return "Id: " + id + ", Number: " + number + ", State: " + state + ", Title: " + title + ", Body: " + body
+                + ", Created At: " + createdAt + ", Closed At: " + closedAt + ", User: " + user + ", Assignee: "
                 + assignee;
     }
 
