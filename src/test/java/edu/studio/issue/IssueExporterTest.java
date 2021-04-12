@@ -56,11 +56,26 @@ class IssueExporterTest {
         assertEquals(false, actual);
 
     }
-
+    
     @Test
-    @ExpectSystemExitWithStatus(0)
-    void testSystemExitOnInvalidPat() {
-        export.exitSystem();
+    void testMultipleStringGivesFalse() {
+
+        String[] args = new String[] { "4554fsfs557fd", "44sdf478re1" };
+
+        boolean actual = export.validatePat(args);
+
+        assertEquals(false, actual);
+
+    }
+    
+    @Test
+    void testEmptyStringGivesFalse() {
+
+        String[] args = new String[] { "" };
+
+        boolean actual = export.validatePat(args);
+
+        assertEquals(false, actual);
 
     }
 
@@ -70,6 +85,13 @@ class IssueExporterTest {
         export.printErrorMessage();
         String expectedOutput = IssueExporter.ERROR_MESSAGE + separator;
         assertEquals(expectedOutput, byteStream.toString());
+    }
+    
+    @Test
+    @ExpectSystemExitWithStatus(0)
+    void testSystemExitOnInvalidPat() {
+        export.exitSystem();
+
     }
 
 }
