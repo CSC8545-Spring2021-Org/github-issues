@@ -14,15 +14,15 @@ public class IssueExporter {
         
         IssueExporter exporter = new IssueExporter();
         
-        exporter.export(args, exporter);
+        exporter.export(args);
         
     }
     
-    protected void export(String[] args, IssueExporter exporter) {
+    protected void export(String[] args) {
         
-        if(!exporter.validatePat(args)) {
-           exporter.printErrorMessage();
-           exporter.exitSystem();
+        if(!validatePat(args)) {
+           printErrorMessage();
+           exitSystem();
         }
         
         GitHubRestClient client = new GitHubRestClient();
@@ -32,7 +32,7 @@ public class IssueExporter {
         List<Issue> issues = parser.parseIssues(jsonResponse);
         
         try {
-            exporter.exportToFile(issues);
+            exportToFile(issues);
         }
         catch (FileNotFoundException e) {
             
