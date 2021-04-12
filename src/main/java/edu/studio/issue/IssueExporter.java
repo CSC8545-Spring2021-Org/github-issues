@@ -39,7 +39,6 @@ public class IssueExporter {
     }
 
     protected void exitSystem() {
-        printErrorMessage();
         System.exit(0);
     }
 
