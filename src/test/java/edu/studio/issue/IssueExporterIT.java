@@ -1,5 +1,6 @@
 package edu.studio.issue;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -27,7 +28,7 @@ public class IssueExporterIT {
     }
     
     @Test
-    void testExportToFileWithNoIssuesGivesEmptyFule() throws InvalidPathException, FileNotFoundException, IOException {
+    void testExportToFileWithNoIssuesGivesEmptyFile() throws InvalidPathException, FileNotFoundException, IOException {
         
         
         List<Issue> issues= getNoIssuesSample();
@@ -36,6 +37,19 @@ public class IssueExporterIT {
         List<String> issueLines = readActualFile();
         assertNotNull(issueLines);
         assertTrue(issueLines.isEmpty());
+ 
+    }
+    
+    @Test
+    void testExportToFileWithThreeIssuesGivesThreeLineFile() throws InvalidPathException, FileNotFoundException, IOException, ParseException {
+        
+        
+        List<Issue> issues= getThreeIssuesSample();
+        exporter.exportToFile(issues);
+        
+        List<String> issueLines = readActualFile();
+        assertNotNull(issueLines);
+        assertEquals(issues.get(0).toString(), issueLines.get(0));
  
     }
 
