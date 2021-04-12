@@ -1,7 +1,12 @@
 package edu.studio.issue;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,18 +27,16 @@ public class IssueExporterIT {
     }
     
     @Test
-    void testExportToFileWithNoIssuesGivesEmptyFule() {
+    void testExportToFileWithNoIssuesGivesEmptyFule() throws InvalidPathException, FileNotFoundException, IOException {
         
         
         List<Issue> issues= getNoIssuesSample();
         exporter.exportToFile(issues);
         
         List<String> issueLines = readActualFile();
-        assertNull(issueLines);
+        assertNotNull(issueLines);
         assertTrue(issueLines.isEmpty());
-
-
-        
+ 
     }
 
     private List<Issue> getNoIssuesSample() {
