@@ -50,6 +50,8 @@ public class IssueExporterIT {
         List<String> issueLines = readActualFile();
         assertNotNull(issueLines);
         assertEquals(issues.get(0).toString(), issueLines.get(0));
+        assertEquals(issues.get(1).toString(), issueLines.get(1));
+        assertEquals(issues.get(2).toString(), issueLines.get(2));
  
     }
 
