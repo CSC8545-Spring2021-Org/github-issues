@@ -6,12 +6,19 @@ import java.util.List;
 
 public class IssueExporter {
 
+    protected static final String FAILED_TO_WRITE_TO_FILE = "Failed to write to file!";
     protected static final String ERROR_MESSAGE = "Make sure you are providing only one non empty and non null argument!";
     protected static final String ACTUAL_FILE_PATH = "actual-issues.txt";
 
     public static void main(String[] args) {
         
         IssueExporter exporter = new IssueExporter();
+        
+        exporter.export(args, exporter);
+        
+    }
+    
+    protected void export(String[] args, IssueExporter exporter) {
         
         if(!exporter.validatePat(args)) {
            exporter.printErrorMessage();
@@ -28,10 +35,9 @@ public class IssueExporter {
             exporter.exportToFile(issues);
         }
         catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            
+            System.out.print(FAILED_TO_WRITE_TO_FILE);
         }
-        
     }
     protected boolean validatePat(String[] args) {
 
