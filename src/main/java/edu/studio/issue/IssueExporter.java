@@ -31,13 +31,8 @@ public class IssueExporter {
         IssueParser parser = new IssueParser();
         List<Issue> issues = parser.parseIssues(jsonResponse);
         
-        try {
-            exportToFile(issues);
-        }
-        catch (FileNotFoundException e) {
-            
-            System.out.print(FAILED_TO_WRITE_TO_FILE);
-        }
+        exportToFile(issues, ACTUAL_FILE_PATH );
+        
     }
     protected boolean validatePat(String[] args) {
 
@@ -53,17 +48,18 @@ public class IssueExporter {
         System.out.println(ERROR_MESSAGE);
     }
     
-    public void exportToFile(List<Issue> issues) throws FileNotFoundException {
+    public void exportToFile(List<Issue> issues, String filePath){
        
-        PrintWriter writer = new PrintWriter(ACTUAL_FILE_PATH);
-        
+        PrintWriter writer=null;
         try {
-            
+            writer = new PrintWriter(filePath);
             for ( Issue issue: issues) {
                 writer.write(issue.toString() +"\n");
             }
         }
-        
+        catch (FileNotFoundException e) {
+            System.out.print(FAILED_TO_WRITE_TO_FILE);
+        }
         finally {
             writer.close();
         }

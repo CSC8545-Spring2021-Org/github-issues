@@ -32,7 +32,7 @@ public class IssueExporterIT {
         
         
         List<Issue> issues= getNoIssuesSample();
-        exporter.exportToFile(issues);
+        exporter.exportToFile(issues, IssueExporter.ACTUAL_FILE_PATH);
         
         List<String> issueLines = readActualFile();
         assertNotNull(issueLines);
@@ -45,7 +45,7 @@ public class IssueExporterIT {
         
         
         List<Issue> issues= getThreeIssuesSample();
-        exporter.exportToFile(issues);
+        exporter.exportToFile(issues, IssueExporter.ACTUAL_FILE_PATH);
         
         List<String> issueLines = readActualFile();
         assertNotNull(issueLines);
