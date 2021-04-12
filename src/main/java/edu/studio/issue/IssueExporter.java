@@ -1,5 +1,9 @@
 package edu.studio.issue;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.InvalidPathException;
 import java.util.List;
 
 public class IssueExporter {
@@ -35,6 +39,15 @@ public class IssueExporter {
     protected void printErrorMessage() {
 
         System.out.println(ERROR_MESSAGE);
+    }
+    
+    public void exportToFile(List<Issue> issues) throws FileNotFoundException, IOException, InvalidPathException {
+       
+        PrintWriter writer = new PrintWriter(ACTUAL_FILE_PATH);
+        
+        for ( Issue issue: issues) {
+            writer.write(issue.toString());
+        }
     }
 
 }
