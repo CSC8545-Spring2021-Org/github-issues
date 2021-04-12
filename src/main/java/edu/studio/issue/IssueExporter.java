@@ -10,9 +10,13 @@ public class IssueExporter {
     }
 
     protected void exitSystem() {
+        printErrorMessage();
+        System.exit(0);
+    }
 
-            System.out.println(ERROR_MESSAGE);
-            System.exit(0);
+    protected void printErrorMessage() {
+
+        System.out.println(ERROR_MESSAGE);
     }
 
 }
