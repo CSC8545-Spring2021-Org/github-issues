@@ -25,6 +25,22 @@ public class IssueExporter {
         
         IssueParser parser = new IssueParser();
         List<Issue> issues = parser.parseIssues(jsonResponse);
+        
+        try {
+            exporter.exportToFile(issues);
+        }
+        catch (InvalidPathException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
     protected boolean validatePat(String[] args) {
 
