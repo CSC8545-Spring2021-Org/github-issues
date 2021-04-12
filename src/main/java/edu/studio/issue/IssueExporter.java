@@ -45,9 +45,18 @@ public class IssueExporter {
        
         PrintWriter writer = new PrintWriter(ACTUAL_FILE_PATH);
         
-        for ( Issue issue: issues) {
-            writer.write(issue.toString());
+        try {
+            
+            for ( Issue issue: issues) {
+                writer.write(issue.toString());
+            }
         }
+        
+        finally {
+            writer.close();
+        }
+        
+        
     }
 
 }
