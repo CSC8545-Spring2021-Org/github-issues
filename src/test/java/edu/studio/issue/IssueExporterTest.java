@@ -56,16 +56,20 @@ class IssueExporterTest {
         assertEquals(false, actual);
 
     }
-    
+
     @Test
     @ExpectSystemExitWithStatus(0)
     void testSystemExitOnInvalidPat() {
-        System.setOut(outputNet);
         export.exitSystem();
+
+    }
+
+    @Test
+    void testPrintErrorMessage() {
+        System.setOut(outputNet);
+        export.printErrorMessage();
         String expectedOutput = IssueExporter.ERROR_MESSAGE + separator;
         assertEquals(expectedOutput, byteStream.toString());
-        
     }
-    
 
 }
