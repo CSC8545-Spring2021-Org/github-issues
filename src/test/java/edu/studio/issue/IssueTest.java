@@ -61,8 +61,8 @@ class IssueTest {
     @Test
     public void testToStringEmpty() {
 
-        assertEquals("Id: 0\nNumber: 0\nState: null\nTitle: null\nBody: null\nCreated At: null\nClosed At: null\n"
-                + "User: null\nAssignee: null", issue.toString());
+        assertEquals("Id: 0, Number: 0, State: null, Title: null, Body: null, Created At: null, Closed At: null, "
+                + "User: null, Assignee: null", issue.toString());
 
     }
 
@@ -79,8 +79,8 @@ class IssueTest {
         Date date = new Date();
         issue.setCreatedAt(date);
 
-        assertEquals("Id: 123456\nNumber: 0\nState: null\nTitle: First Issue\nBody: null\nCreated At: " + date
-                + "\nClosed At: null\n" + "User: Username: Utsav, Id: 123\nAssignee: null", issue.toString());
+        assertEquals("Id: 123456, Number: 0, State: null, Title: First Issue, Body: null, Created At: " + date
+                + ", Closed At: null, " + "User: Username: Utsav, Id: 123, Assignee: null", issue.toString());
 
     }
 
@@ -103,9 +103,9 @@ class IssueTest {
         issue.setClosedAt(date);
 
         assertEquals(
-                "Id: 123456\nNumber: 123\nState: open\nTitle: First Issue\nBody: This describes the issue!\nCreated At: "
-                        + date + "\nClosed At: " + date
-                        + "\nUser: Username: Utsav, Id: 123\nAssignee: Username: Utsav, Id: 123",
+                "Id: 123456, Number: 123, State: open, Title: First Issue, Body: This describes the issue!, Created At: "
+                        + date + ", Closed At: " + date
+                        + ", User: Username: Utsav, Id: 123, Assignee: Username: Utsav, Id: 123",
                 issue.toString());
 
     }
