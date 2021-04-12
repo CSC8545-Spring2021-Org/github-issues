@@ -48,7 +48,7 @@ public class IssueExporter {
         try {
             
             for ( Issue issue: issues) {
-                writer.write(issue.toString());
+                writer.write(issue.toString() +"\n");
             }
         }
         
