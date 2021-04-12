@@ -1,6 +1,7 @@
 package edu.studio.issue;
 
-import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -80,9 +81,9 @@ public class IssueExporterIT {
         return issues;
     }
     
-    private List<String> readActualFile(){
+    private List<String> readActualFile() throws IOException{
         
-        return File.readAllLines(Paths.get(exporter.ACTUAL_FILE_PATH));
+        return Files.readAllLines(Paths.get(IssueExporter.ACTUAL_FILE_PATH));
         
     }
 

@@ -5,6 +5,7 @@ import java.util.List;
 public class IssueExporter {
 
     protected static final String ERROR_MESSAGE = "Make sure you are providing only one non empty and non null argument!";
+    protected static final String ACTUAL_FILE_PATH = "actual-issues.txt";
 
     public static void main(String[] args) {
         
