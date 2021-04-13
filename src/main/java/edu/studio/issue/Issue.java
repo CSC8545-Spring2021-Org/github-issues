@@ -107,17 +107,14 @@ public class Issue implements Comparable<Issue> {
     @Override
     public boolean equals(Object obj) {
         boolean result = true;
-        if (obj == null) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
 
         if (this == obj) {
             result=true;
         }
-
-        if (getClass() != obj.getClass()) {
-            result = false;
-        }
+        
         Issue other = (Issue) obj;
         if (id != other.id) {
             result = false;
