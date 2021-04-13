@@ -61,7 +61,10 @@ public class IssueExporter {
             System.out.print(FAILED_TO_WRITE_TO_FILE);
         }
         finally {
-            writer.close();
+            if(writer!=null) {
+                writer.close(); 
+            }
+            
         }
         
         
