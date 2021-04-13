@@ -50,7 +50,7 @@ public class IssueExporter {
     
     public void exportToFile(List<Issue> issues, String filePath){
        
-        PrintWriter writer=null;
+        PrintWriter writer = null;
         try {
             writer = new PrintWriter(filePath);
             for ( Issue issue: issues) {

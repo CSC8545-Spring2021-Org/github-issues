@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -77,6 +79,23 @@ class IssueExporterTest {
 
         assertEquals(false, actual);
 
+    }
+    
+    @Test
+    void testExportToFileHandleFileNotFoundException() {
+        
+        List<Issue> issues= new ArrayList<Issue>(); 
+        Issue issue = new Issue();
+        issue.setId(123456);
+        issue.setTitle("First Issue");
+        issue.setBody("This describes the issue!");
+        
+        issues.add(issue);
+        
+        System.setOut(outputNet);
+        export.exportToFile(issues, "src/bla/actual-issues.txt");
+        String expectedOutput = IssueExporter.FAILED_TO_WRITE_TO_FILE;
+        assertEquals(expectedOutput, byteStream.toString());
     }
 
     @Test
