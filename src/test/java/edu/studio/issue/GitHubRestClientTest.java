@@ -15,13 +15,12 @@ import org.junit.jupiter.api.Test;
 class GitHubRestClientTest {
 
     private GitHubRestClient client;
-    private String token;
+    protected static String token = System.getProperty("bearer.token");
 
     @BeforeEach
     void setUp() throws Exception {
 
         client = new GitHubRestClient();
-        token = System.getProperty("bearer.token");
     }
 
     @Test

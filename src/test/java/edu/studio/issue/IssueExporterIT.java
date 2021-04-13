@@ -54,6 +54,20 @@ public class IssueExporterIT {
         assertEquals(issues.get(2).toString(), issueLines.get(2));
  
     }
+    
+    @Test
+    void testEndToEnd() throws IOException {
+        
+        String[] args= new String[] {GitHubRestClientTest.token};
+        exporter.export(args);
+        
+        List<String> issues = readActualFile();
+        assertNotNull(issues);
+        assertEquals(7, issues.size());
+
+        
+        
+    }
 
     private List<Issue> getNoIssuesSample() {
         
