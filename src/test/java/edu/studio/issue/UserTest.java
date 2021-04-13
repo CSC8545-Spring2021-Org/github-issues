@@ -108,7 +108,7 @@ class UserTest {
 
         assertFalse(user.equals(new Issue()));
     }
-    
+
     @Test
     public void testEqualsDifferentIdGivesFalse() {
 
@@ -121,9 +121,9 @@ class UserTest {
 
         user.setId(444);
         assertTrue(user1.compareTo(user) < 0);
-        
+
     }
-    
+
     @Test
     public void testCompareToGreaterYieldsTrue() {
 
@@ -131,7 +131,7 @@ class UserTest {
         assertTrue(user1.compareTo(user) > 0);
 
     }
-    
+
     @Test
     public void testCompareTo2EqualYieldsTrue() {
 

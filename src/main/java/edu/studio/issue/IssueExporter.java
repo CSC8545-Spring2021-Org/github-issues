@@ -11,29 +11,30 @@ public class IssueExporter {
     protected static final String ACTUAL_FILE_PATH = "actual-issues.txt";
 
     public static void main(String[] args) {
-        
+
         IssueExporter exporter = new IssueExporter();
-        
+
         exporter.export(args);
-        
+
     }
-    
+
     protected void export(String[] args) {
-        
-        if(!validatePat(args)) {
-           printErrorMessage();
-           exitSystem();
+
+        if (!validatePat(args)) {
+            printErrorMessage();
+            exitSystem();
         }
-        
+
         GitHubRestClient client = new GitHubRestClient();
         String jsonResponse = client.getIssuesFromGitHub(args[0]);
-        
+
         IssueParser parser = new IssueParser();
         List<Issue> issues = parser.parseIssues(jsonResponse);
-        
-        exportToFile(issues, ACTUAL_FILE_PATH );
-        
+
+        exportToFile(issues, ACTUAL_FILE_PATH);
+
     }
+
     protected boolean validatePat(String[] args) {
 
         return (args == null || args[0] == null || args.length != 1 || args[0].isEmpty()) ? false : true;
@@ -47,27 +48,26 @@ public class IssueExporter {
 
         System.out.println(ERROR_MESSAGE);
     }
-    
-    public void exportToFile(List<Issue> issues, String filePath){
-       
+
+    public void exportToFile(List<Issue> issues, String filePath) {
+
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(filePath);
-            for ( Issue issue: issues) {
-                writer.write(issue.toString() +"\n");
+            for (Issue issue : issues) {
+                writer.write(issue.toString() + "\n");
             }
         }
         catch (FileNotFoundException e) {
             System.out.print(FAILED_TO_WRITE_TO_FILE);
         }
         finally {
-            if(writer!=null) {
-                writer.close(); 
+            if (writer != null) {
+                writer.close();
             }
-            
+
         }
-        
-        
+
     }
 
 }

@@ -58,7 +58,7 @@ class IssueExporterTest {
         assertEquals(false, actual);
 
     }
-    
+
     @Test
     void testMultipleStringGivesFalse() {
 
@@ -69,7 +69,7 @@ class IssueExporterTest {
         assertEquals(false, actual);
 
     }
-    
+
     @Test
     void testEmptyStringGivesFalse() {
 
@@ -80,18 +80,18 @@ class IssueExporterTest {
         assertEquals(false, actual);
 
     }
-    
+
     @Test
     void testExportToFileHandleFileNotFoundException() {
-        
-        List<Issue> issues= new ArrayList<Issue>(); 
+
+        List<Issue> issues = new ArrayList<Issue>();
         Issue issue = new Issue();
         issue.setId(123456);
         issue.setTitle("First Issue");
         issue.setBody("This describes the issue!");
-        
+
         issues.add(issue);
-        
+
         System.setOut(outputNet);
         export.exportToFile(issues, "src/bla/actual-issues.txt");
         String expectedOutput = IssueExporter.FAILED_TO_WRITE_TO_FILE;
@@ -105,7 +105,7 @@ class IssueExporterTest {
         String expectedOutput = IssueExporter.ERROR_MESSAGE + separator;
         assertEquals(expectedOutput, byteStream.toString());
     }
-    
+
     @Test
     @ExpectSystemExitWithStatus(0)
     void testSystemExitOnInvalidPat() {

@@ -112,9 +112,9 @@ public class Issue implements Comparable<Issue> {
         }
 
         if (this == obj) {
-            result=true;
+            result = true;
         }
-        
+
         Issue other = (Issue) obj;
         if (id != other.id) {
             result = false;
