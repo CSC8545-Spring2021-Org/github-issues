@@ -102,6 +102,12 @@ class UserTest {
         assertTrue(user1.equals(user2));
         assertEquals(user1.hashCode(), user1.hashCode());
     }
+    
+    @Test
+    public void testEqualsTwoDifferentClassObjectsGivesFalse() {
+
+        assertFalse(user.equals(new Issue()));
+    }
 
     @Test
     public void testCompareToSmallerYieldsTrue() {
