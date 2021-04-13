@@ -108,6 +108,13 @@ class UserTest {
 
         assertFalse(user.equals(new Issue()));
     }
+    
+    @Test
+    public void testEqualsDifferentIdGivesFalse() {
+
+        user.setId(4);
+        assertFalse(user.equals(user1));
+    }
 
     @Test
     public void testCompareToSmallerYieldsTrue() {
