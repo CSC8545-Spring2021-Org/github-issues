@@ -164,28 +164,29 @@ class IssueTest {
 
         assertFalse(issue.equals(new User()));
     }
-    
+
     @Test
     public void testEqualsDifferentIdGivesFalse() {
 
         issue.setId(4);
-        assertFalse(user.equals(issue1));
+        assertFalse(issue.equals(issue1));
     }
+
     @Test
     public void testCompareToSmallerYieldsTrue() {
 
         issue.setId(44);
         assertTrue(issue1.compareTo(issue) < 0);
-        
+
     }
-    
+
     @Test
     public void testCompareToGreaterYieldsTrue() {
 
         issue.setId(28);
         assertTrue(issue1.compareTo(issue) > 0);
     }
-    
+
     @Test
     public void testCompareToEqualYieldsTrue() {
 
