@@ -46,18 +46,16 @@ public class User implements Comparable<User> {
 
     @Override
     public boolean equals(Object obj) {
+        
         boolean result = true;
-        if (obj == null) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
 
         if (this == obj) {
             result=true;
         }
-
-        if (getClass() != obj.getClass()) {
-            result = false;
-        }
+        
         User other = (User) obj;
         if (id != other.id) {
             result = false;
