@@ -160,6 +160,18 @@ class IssueTest {
     }
 
     @Test
+    public void testEqualsTwoDifferentClassObjectsGivesFalse() {
+
+        assertFalse(issue.equals(new User()));
+    }
+    
+    @Test
+    public void testEqualsDifferentIdGivesFalse() {
+
+        issue.setId(4);
+        assertFalse(user.equals(issue1));
+    }
+    @Test
     public void testCompareToSmallerYieldsTrue() {
 
         issue.setId(44);
