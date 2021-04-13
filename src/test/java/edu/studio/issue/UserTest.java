@@ -104,12 +104,27 @@ class UserTest {
     }
 
     @Test
-    public void testCompareTo() {
+    public void testCompareToSmallerYieldsTrue() {
 
-        user.setId(44);
+        user.setId(444);
+        assertTrue(user1.compareTo(user) < 0);
+        
+    }
+    
+    @Test
+    public void testCompareToGreaterYieldsTrue() {
+
+        user.setId(28);
         assertTrue(user1.compareTo(user) > 0);
-        assertFalse(user1.compareTo(user) < 0);
-        assertFalse(user1.compareTo(user) == 0);
+
+    }
+    
+    @Test
+    public void testCompareTo2EqualYieldsTrue() {
+
+        user.setId(123);
+        assertTrue(user1.compareTo(user) == 0);
+
     }
 
 }

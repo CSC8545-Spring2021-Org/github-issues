@@ -160,12 +160,25 @@ class IssueTest {
     }
 
     @Test
-    public void testCompareTo() {
+    public void testCompareToSmallerYieldsTrue() {
 
         issue.setId(44);
         assertTrue(issue1.compareTo(issue) < 0);
-        assertFalse(issue1.compareTo(issue) > 0);
-        assertFalse(issue1.compareTo(issue) == 0);
+        
+    }
+    
+    @Test
+    public void testCompareToGreaterYieldsTrue() {
+
+        issue.setId(28);
+        assertTrue(issue1.compareTo(issue) > 0);
+    }
+    
+    @Test
+    public void testCompareToEqualYieldsTrue() {
+
+        issue.setId(42);
+        assertTrue(issue1.compareTo(issue) == 0);
     }
 
 }
