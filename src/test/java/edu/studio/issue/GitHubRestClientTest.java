@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 class GitHubRestClientTest {
 
-    private GitHubRestClient client;
+    private RestClient client;
     protected static String token = System.getProperty("bearer.token");
 
     @BeforeEach

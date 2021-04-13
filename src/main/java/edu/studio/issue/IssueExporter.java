@@ -25,14 +25,19 @@ public class IssueExporter {
             exitSystem();
         }
 
-        GitHubRestClient client = new GitHubRestClient();
-        String jsonResponse = client.getIssuesFromGitHub(args[0]);
+        RestClient client = new GitHubRestClient();
+        String jsonResponse = getJsonResponse(args, client);
 
         IssueParser parser = new IssueParser();
         List<Issue> issues = parser.parseIssues(jsonResponse);
 
         exportToFile(issues, ACTUAL_FILE_PATH);
 
+    }
+
+    protected String getJsonResponse(String[] args, RestClient client) {
+        String jsonResponse = client.getIssuesFromGitHub(args[0]);
+        return jsonResponse;
     }
 
     protected boolean validatePat(String[] args) {
