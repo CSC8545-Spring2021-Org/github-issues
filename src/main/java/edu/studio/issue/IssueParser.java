@@ -11,10 +11,11 @@ import com.google.gson.reflect.TypeToken;
 
 public class IssueParser {
 
+    protected static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
     private Gson gson;
 
     public IssueParser() {
-        gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+        gson = new GsonBuilder().setDateFormat(DATE_FORMAT)
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
     }
 

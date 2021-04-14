@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 public class IssueExporterIT {
 
     private IssueExporter exporter;
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat(IssueParser.DATE_FORMAT);
 
     @BeforeEach
     void setUp() {
