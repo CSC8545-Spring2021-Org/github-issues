@@ -16,7 +16,7 @@ public class IssueExporter {
 
         exporter.export(args);
         
-        System.out.print("Exported Successfully!");
+        System.out.print("Exported Issues Successfully!");
 
     }
 
