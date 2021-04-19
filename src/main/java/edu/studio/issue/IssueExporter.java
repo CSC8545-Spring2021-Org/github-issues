@@ -15,7 +15,7 @@ public class IssueExporter {
         IssueExporter exporter = new IssueExporter();
 
         exporter.export(args);
-        
+
     }
 
     protected void export(String[] args) {
